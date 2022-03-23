@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sons.jawad.apiPresentationLibrary.views.LogoView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/logo2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/logoImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="visible" />
+
+    <com.hanks.htextview.base.scale.ScaleTextView
+        android:id="@+id/scaleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:textColor="@color/secondary_color"
+        android:textSize="22sp" />
+
+</com.sons.jawad.apiPresentationLibrary.views.LogoView>

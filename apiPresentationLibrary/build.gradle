@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id "com.android.library"
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
 }
@@ -8,7 +8,6 @@ android {
     compileSdk COMPILE_VERSION
 
     defaultConfig {
-        applicationId "mohamad.ammar.abu.kalam.apipresentationlibrary"
         minSdk 21
         targetSdk 32
         versionCode 1
@@ -30,6 +29,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -37,6 +39,11 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
+
+    /*databinding started*/
+    kapt "androidx.databinding:databinding-compiler:$IDE_VERSION"
+    annotationProcessor "androidx.databinding:databinding-compiler:$IDE_VERSION"
+    /*databinding ended*/
 
     /*Moxy started*/
     implementation "com.arello-mobile:moxy-app-compat:$MOXY_VERSION"
@@ -71,11 +78,17 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.6'
     /*Networking ended*/
 
-    implementation "io.reactivex.rxjava2:rxandroid:$REACTIVEX_VERSION"
+    implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
+    implementation "io.reactivex.rxjava3:rxandroid:$REACTIV_ANDROID_VERSION"
+    implementation "io.reactivex.rxjava3:rxjava:$REACTIVEX_VERSION"
 
-    implementation 'commons-codec:commons-codec:1.1'
+    implementation 'commons-codec:commons-codec:20041127.091804'
 
     implementation project(':sdp-android')
+
+    def htextview_version = "0.1.6"
+    implementation "com.hanks:htextview-base:$htextview_version"        // base library
+    implementation "com.hanks:htextview-scale:$htextview_version"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

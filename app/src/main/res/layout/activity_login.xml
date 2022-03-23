@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/loginContainer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.95">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/peopleIcon"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:padding="@dimen/lg_padding"
+                app:layout_constraintBottom_toTopOf="@+id/userNameContainer"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.95"
+                app:srcCompat="@mipmap/ic_launcher" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/userNameContainer"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/md_margin"
+                android:background="@drawable/edit_text_bg"
+                android:padding="@dimen/xsm_padding"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.15"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/userNameIcon"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/sm_padding"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_person_primary_24dp" />
+
+                <View
+                    android:id="@+id/userNameSeparator"
+                    android:layout_width="@dimen/separator"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/md_margin"
+                    android:layout_marginLeft="@dimen/md_margin"
+                    android:layout_marginTop="@dimen/md_margin"
+                    android:layout_marginEnd="@dimen/md_margin"
+                    android:layout_marginRight="@dimen/md_margin"
+                    android:layout_marginBottom="@dimen/md_margin"
+                    android:background="@color/secondary_color"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toEndOf="@+id/userNameIcon" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/userNameEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sm_padding"
+                    android:layout_marginLeft="@dimen/sm_padding"
+                    android:layout_marginEnd="@dimen/Zero"
+                    android:layout_marginRight="@dimen/sm_padding"
+                    android:background="@color/transparent"
+                    android:hint="@string/UserName"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:padding="@dimen/sm_padding"
+                    android:singleLine="true"
+                    android:text="adhamkhwaldeh@gmail.com"
+                    android:textColor="@color/edit_text_color"
+                    android:textColorHint="@color/edit_text_color"
+                    android:textCursorDrawable="@drawable/edit_text_cursor"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/userNameSeparator"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/userNameSeparator"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <requestFocus />
+
+                </androidx.appcompat.widget.AppCompatEditText>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/passwordContainer"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/md_padding"
+                android:layout_marginStart="@dimen/md_margin"
+                android:layout_marginTop="@dimen/md_margin"
+                android:layout_marginEnd="@dimen/md_margin"
+                android:layout_marginBottom="@dimen/md_margin"
+                android:background="@drawable/edit_text_bg"
+                android:padding="@dimen/xsm_padding"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.15"
+                app:layout_constraintTop_toBottomOf="@+id/userNameContainer">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/passwordIcon"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/sm_padding"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_lock_primary_24dp" />
+
+                <View
+                    android:id="@+id/passwordSeparator"
+                    android:layout_width="@dimen/separator"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/md_margin"
+                    android:layout_marginLeft="@dimen/md_margin"
+                    android:layout_marginTop="@dimen/md_margin"
+                    android:layout_marginEnd="@dimen/md_margin"
+                    android:layout_marginRight="@dimen/md_margin"
+                    android:layout_marginBottom="@dimen/md_margin"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toEndOf="@+id/passwordIcon" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/passwordEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sm_padding"
+                    android:layout_marginLeft="@dimen/sm_padding"
+                    android:layout_marginEnd="@dimen/sm_padding"
+                    android:layout_marginRight="@dimen/sm_padding"
+                    android:background="@color/transparent"
+                    android:hint="@string/Password"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:padding="@dimen/sm_padding"
+                    android:singleLine="true"
+                    android:text="aZ0943915633$"
+                    android:textColor="@color/edit_text_color"
+                    android:textColorHint="@color/edit_text_color"
+                    android:textCursorDrawable="@drawable/edit_text_cursor"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/passwordSeparator"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/passwordSeparator"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintTop_toBottomOf="@+id/passwordContainer">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/loginBtn"
+                    style="@style/TextAppearance.AppCompat.Large"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/md_margin"
+                    android:layout_marginTop="@dimen/md_margin"
+                    android:layout_marginEnd="@dimen/md_margin"
+                    android:layout_marginBottom="@dimen/md_margin"
+                    android:background="@drawable/button_bg"
+                    android:gravity="center"
+                    android:text="@string/Login"
+                    android:textAlignment="gravity"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>
