@@ -4,13 +4,19 @@ pluginManagement {
         google()
         mavenCentral()
     }
+
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
+        maven { url "https://oss.jfrog.org/libs-snapshot" }
+
     }
 }
+
 rootProject.name = "Loliate"
 include ':app'
+include ':sdp-android'
+include ':apiPresentationLibrary'
