@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ProgressWheel">
+        <attr name="matProg_progressIndeterminate" format="boolean" />
+        <attr name="matProg_barColor" format="color" />
+        <attr name="matProg_rimColor" format="color" />
+        <attr name="matProg_rimWidth" format="dimension" />
+        <attr name="matProg_spinSpeed" format="float" />
+        <attr name="matProg_barSpinCycleTime" format="integer" />
+        <attr name="matProg_circleRadius" format="dimension" />
+        <attr name="matProg_fillRadius" format="boolean" />
+        <attr name="matProg_barWidth" format="dimension" />
+        <attr name="matProg_linearProgress" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="NoneSwipeViewPager">
+        <attr name="Swipable" format="enum">
+            <enum name="all" value="0" />
+            <enum name="left" value="1" />
+            <enum name="right" value="2" />
+            <enum name="none" value="3" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="RtlViewPager">
+        <attr name="SwipePager" format="enum">
+            <enum name="all" value="0" />
+            <enum name="left" value="1" />
+            <enum name="right" value="2" />
+            <enum name="none" value="3" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="StatesLayoutView">
+        <attr name="WaitingLayout" format="reference" />
+        <attr name="NoDataLayout" format="reference" />
+        <attr name="NoConnectionLayout" format="reference" />
+        <attr name="SuccessLayout" format="reference" />
+        <attr name="NoPermissionLayout" format="reference" />
+        <attr name="InternalServerErrorLayout" format="reference" />
+
+        <attr name="RefreshBtnRes" format="reference" />
+        <attr name="PermissionBtnRes" format="reference" />
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="recyclerView_item_space_min">4dp</dimen>
+
+
+    <dimen name="card_insets">2dp</dimen>
+
+    <dimen name="xsm_margin">2dp</dimen>
+    <dimen name="xsm_padding">2dp</dimen>
+
+    <dimen name="sm_margin">4dp</dimen>
+    <dimen name="sm_padding">4dp</dimen>
+
+    <dimen name="md_margin">8dp</dimen>
+    <dimen name="md_padding">8dp</dimen>
+
+    <dimen name="lg_margin">16dp</dimen>
+    <dimen name="lg_padding">16dp</dimen>
+
+    <dimen name="mdLg_padding">28dp</dimen>
+
+    <dimen name="xlg_padding">32dp</dimen>
+    <dimen name="xlg_margin">32dp</dimen>
+
+    <dimen name="xXlg_padding">64dp</dimen>
+    <dimen name="xXlg_margin">64dp</dimen>
+
+    <dimen name="si_default_text_size">18sp</dimen>
+    <dimen name="si_default_radius_max">24dp</dimen>
+    <dimen name="si_default_radius_min">8dp</dimen>
+
+
+    <dimen name="progress_wheel_height">56dp</dimen>
+    <dimen name="progress_wheel_width">56dp</dimen>
+
+    <dimen name="buttonCorner">2dp</dimen>
+    <dimen name="elevation">4dp</dimen>
+    <dimen name="lg_elevation">15dp</dimen>
+    <dimen name="cardRadius">4dp</dimen>
+    <dimen name="max_margin">120dp</dimen>
+    <dimen name="separator">1dp</dimen>
+
+
+    <dimen name="recyclerviewTagHeight">35dp</dimen>
+    <dimen name="xxsm_margin">1dp</dimen>
+    <dimen name="xxsm_padding">1dp</dimen>
+
+    <dimen name="Zero">0dp</dimen>
+
+    <dimen name="radius_btn">@dimen/_4sdp</dimen>
+
+</resources>

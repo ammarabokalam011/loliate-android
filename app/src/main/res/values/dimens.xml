@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="channelIconWidth">@dimen/_48sdp</dimen>
+    <dimen name="channelIconHeight">@dimen/_48sdp</dimen>
+
+
+    <dimen name="channelCellHeight">@dimen/_70sdp</dimen>
+    <dimen name="channelPadding">@dimen/_12sdp</dimen>
+    <dimen name="channel_radius">@dimen/_1sdp</dimen>
+    <dimen name="radioIconWidth">50dp</dimen>
+    <dimen name="radioIconWidthMin">50dp</dimen>
+    <dimen name="radioIconHeightMin">50dp</dimen>
+
+    <dimen name="card_corner_radius">@dimen/_16sdp</dimen>
+
+    <dimen name="favIconWidth">36dp</dimen>
+    <dimen name="favIconHeight">36dp</dimen>
+
+</resources>

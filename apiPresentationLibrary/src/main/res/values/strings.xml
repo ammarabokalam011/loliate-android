@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">apiPresentationLibrary</string>
+
+    <string name="pleaseWait">Please wait ...</string>
+    <string name="ThisFieldRequired">This field required</string>
+
+    <string name="pleaseCheckConnection">Please check connection</string>
+    <string name="unExpectedErrorHappened">Unexpected error happened</string>
+    <string name="userNameOrPasswordIncorrect">User name or password incorrect</string>
+
+    <string name="UserName">User name</string>
+    <string name="Password">Password</string>
+    <string name="Login">Login</string>
+    <string name="app_name">Loulyat</string>
+
 </resources>

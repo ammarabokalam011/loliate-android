@@ -85,12 +85,6 @@ dependencies {
     implementation "io.reactivex.rxjava3:rxjava:$REACTIVEX_VERSION"
     /*React java ended*/
 
-
-    /*Butter knife started*/
-    implementation "com.jakewharton:butterknife:$BUTTERKNIFE_VERSION"
-    kapt  "com.jakewharton:butterknife-compiler:$BUTTERKNIFE_VERSION"
-    /*Butter knife ended*/
-
     /*Room data base started*/
     implementation "androidx.room:room-runtime:$ROOM_VERSION"
     kapt "androidx.room:room-compiler:$ROOM_VERSION"
