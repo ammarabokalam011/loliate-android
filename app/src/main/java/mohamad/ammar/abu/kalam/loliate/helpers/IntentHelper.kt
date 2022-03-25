@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import com.google.gson.Gson
 import mohamad.ammar.abu.kalam.loliate.activities.LoginActivity
+import mohamad.ammar.abu.kalam.loliate.activities.MainActivity
 
 class IntentHelper {
 
@@ -15,13 +16,14 @@ class IntentHelper {
             context.startActivity(intent)
         }
 
-//        fun startMainActivity(context: Context) {
-//            val intent = Intent(context, MainActivity::class.java)
-//            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or
-//                    Intent.FLAG_ACTIVITY_CLEAR_TASK
-//            context.startActivity(intent)
-//        }
-//
+
+        fun startMainActivity(context: Context) {
+            val intent = Intent(context, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                    Intent.FLAG_ACTIVITY_CLEAR_TASK
+            context.startActivity(intent)
+        }
+
 //        fun startMovieDetailsActivity(context: Context, poJo: MovieBase) {
 //            val intent = Intent(context, MovieDetailsActivity::class.java)
 //            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK

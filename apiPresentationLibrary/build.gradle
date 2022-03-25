@@ -78,9 +78,16 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.6'
     /*Networking ended*/
 
+    /*RX Java started*/
     implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
     implementation "io.reactivex.rxjava3:rxandroid:$REACTIV_ANDROID_VERSION"
     implementation "io.reactivex.rxjava3:rxjava:$REACTIVEX_VERSION"
+    /*RX Java ended*/
+
+    /*Hilt started*/
+    implementation 'com.google.dagger:hilt-android:2.41'
+    kapt 'com.google.dagger:hilt-compiler:2.41'
+    /*Hilt ended*/
 
     implementation 'commons-codec:commons-codec:20041127.091804'
 

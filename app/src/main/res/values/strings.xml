@@ -1,21 +1,11 @@
 <resources>
     <string name="app_name">Loulyat</string>
-    <string name="Channels">Channels</string>
-    <string name="Movies">Movies</string>
-    <string name="Radios">Radios</string>
-    <string name="Account">Account</string>
-    <string name="Settings">Settings</string>
-    <string name="more">more</string>
-    <string name="Groups">Groups</string>
-    <string name="Favourite">Favourite</string>
-    <string name="Package">Package</string>
-    <string name="add_favourite">Add favourite</string>
-    <string name="favourite_name">Favourite name</string>
     <string name="add">Add</string>
     <string name="cancel">Cancel</string>
-    <string name="Channels_lock">Channels Lock</string>
-    <string name="favouriteGroupAlreadyExist">Favourite group already exist</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="doYouWantDeleteFavoriteGroup">Do you want delete favorite group?</string>
+    <string name="pleaseCheckConnection">please check your internet</string>
+    <string name="unExpectedErrorHappened">unexpected error happened try again</string>
+    <string name="userNameOrPasswordIncorrect">Username or password incorrect</string>
 </resources>
