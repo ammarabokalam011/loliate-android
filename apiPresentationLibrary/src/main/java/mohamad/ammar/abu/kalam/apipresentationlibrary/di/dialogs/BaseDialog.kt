@@ -12,7 +12,7 @@ abstract class BaseDialog : DialogFragment() {
         public fun closeDialog(supportFragmentManager: FragmentManager, dialogTag: String) {
             try {
                 val dialog: BaseDialog? = supportFragmentManager
-                        .findFragmentByTag(dialogTag) as BaseDialog?
+                    .findFragmentByTag(dialogTag) as BaseDialog?
                 val res = dialog?.dialog?.isShowing
                 if ((res != null) && (res != false)) {
                     dialog.dismiss()
@@ -27,7 +27,6 @@ abstract class BaseDialog : DialogFragment() {
         closeDialog(supportFragmentManager, dialogTag)
         show(supportFragmentManager, dialogTag)
     }
-
 
 
     override fun show(manager: FragmentManager, tag: String?) {

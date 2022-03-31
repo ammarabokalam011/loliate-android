@@ -22,9 +22,9 @@ import mohamad.ammar.abu.kalam.apipresentationlibrary.R;
 
 public class ProgressWheel extends View {
     private static final String TAG = ProgressWheel.class.getSimpleName();
+    final int barMaxLength = 270;
+    final long pauseGrowingTime = 200;
     private final int barLength = 16;
-     final int barMaxLength = 270;
-     final long pauseGrowingTime = 200;
     /**
      * *********
      * DEFAULTS *

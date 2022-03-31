@@ -1,3 +1,3 @@
 package mohamad.ammar.abu.kalam.apipresentationlibrary.request
 
-class LoginRequest (var email:String,var password:String)
+class LoginRequest(var phone: String, var password: String)

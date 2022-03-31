@@ -6,5 +6,6 @@ package mohamad.ammar.abu.kalam.apipresentationlibrary.listeners;
 
 public interface OnRefreshLayoutListener {
     void onRefresh();
+
     void onRequestPermission();
 }

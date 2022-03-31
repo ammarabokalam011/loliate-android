@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="category"
+            type="mohamad.ammar.abu.kalam.apipresentationlibrary.entities.Category" />
+    </data>
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_140sdp"
+        android:layout_margin="4dp"
+        android:shadowColor="@color/green_light"
+        android:shadowRadius="3"
+        app:cardElevation="4dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardCornerRadius="3dp"
+        >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/source_image"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:src="@mipmap/ic_launcher"
+                app:categoryImage="@{category.image}"
+                android:layout_height="@dimen/_108sdp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/source_name"
+                    android:textSize="24sp"
+                    android:layout_centerHorizontal="true"
+                    android:text="@{category.name}"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</layout>

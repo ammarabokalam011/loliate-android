@@ -26,45 +26,45 @@ class UserPresenter @Inject constructor(val activity: FragmentActivity) : UserCo
     override fun login(loginRequest: LoginRequest) {
         view.showProgress(true)
         val observable = ApiServer(activity).apiInterfaces.login(loginRequest)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    view.showProgress(false)
-                    if (response.success) {
-                        if (response.data != null) {
-                            view.onLoginSuccessfully(response.data!!)
-                        } else {
-                            view.onLoginFailed()
-                        }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ response ->
+                view.showProgress(false)
+                if (response.success) {
+                    if (response.data != null) {
+                        view.onLoginSuccessfully(response.data!!)
                     } else {
-                        view.showInternalServerError(true)
+                        view.onLoginFailed()
                     }
-                }, {
-                    view.showProgress(false)
-                    view.showLoadErrorMessage(true)
-                })
+                } else {
+                    view.showInternalServerError(true)
+                }
+            }, {
+                view.showProgress(false)
+                view.showLoadErrorMessage(true)
+            })
     }
 
     override fun loadProfile() {
         view.showProgress(true)
         val observable = ApiServer(activity).apiInterfaces.getUser()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    view.showProgress(false)
-                    if (response.success) {
-                        if (response.data != null) {
-                            view.onProfileLoadedSuccessfully(response.data!!)
-                        } else {
-                            view.onProfileLoadingFailed()
-                        }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ response ->
+                view.showProgress(false)
+                if (response.success) {
+                    if (response.data != null) {
+                        view.onProfileLoadedSuccessfully(response.data!!)
                     } else {
-                        view.showInternalServerError(true)
+                        view.onProfileLoadingFailed()
                     }
-                }, {
-                    view.showProgress(false)
-                    view.showLoadErrorMessage(true)
-                })
+                } else {
+                    view.showInternalServerError(true)
+                }
+            }, {
+                view.showProgress(false)
+                view.showLoadErrorMessage(true)
+            })
 
     }
 

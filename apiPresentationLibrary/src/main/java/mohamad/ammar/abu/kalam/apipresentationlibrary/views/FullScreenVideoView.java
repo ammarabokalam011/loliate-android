@@ -11,14 +11,6 @@ public class FullScreenVideoView extends VideoView {
 
     private OnSeekChangeListener onSeekChangeListener;
 
-    public OnSeekChangeListener getOnSeekChangeListener() {
-        return onSeekChangeListener;
-    }
-
-    public void setOnSeekChangeListener(OnSeekChangeListener onSeekChangeListener) {
-        this.onSeekChangeListener = onSeekChangeListener;
-    }
-
     public FullScreenVideoView(Context context) {
         super(context);
     }
@@ -29,6 +21,14 @@ public class FullScreenVideoView extends VideoView {
 
     public FullScreenVideoView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+    }
+
+    public OnSeekChangeListener getOnSeekChangeListener() {
+        return onSeekChangeListener;
+    }
+
+    public void setOnSeekChangeListener(OnSeekChangeListener onSeekChangeListener) {
+        this.onSeekChangeListener = onSeekChangeListener;
     }
 
     @Override

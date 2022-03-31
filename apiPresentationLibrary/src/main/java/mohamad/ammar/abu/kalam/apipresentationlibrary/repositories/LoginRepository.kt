@@ -12,7 +12,7 @@ class LoginRepository(context: Context) : BasePrefRepository(context) {
     }
 
     fun setLoginResponse(loginResponse: LoginResponse) {
-        val jSon= Gson().toJson(loginResponse).toString()
+        val jSon = Gson().toJson(loginResponse).toString()
         editor.putString(LOGIN_TAG, jSon)
         editor.apply()
     }

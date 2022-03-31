@@ -1,33 +1,36 @@
 package mohamad.ammar.abu.kalam.loliate.helpers
 
-import android.text.TextUtils
-import android.view.View
 import android.widget.*
-import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import java.util.*
+import mohamad.ammar.abu.kalam.apipresentationlibrary.apiService.ApiInfo
+import mohamad.ammar.abu.kalam.apipresentationlibrary.entities.Product
 
 class BindingHelper {
 
     companion object {
 
-//        /*Channel started*/
-//        @JvmStatic
-//        @BindingAdapter("channelImage")
-//        fun bindChannelIcon(imageView: ImageView, channelBase: ChannelBase) {
-//            val context = imageView.context
-//            val url = ApiInfo.baseChannelImageUrl + channelBase.chnlLogo
-//            val requestOption = RequestOptions()
-//                .placeholder(R.drawable.ic_dummy)
-//                .error(R.drawable.ic_dummy)
-//            Glide.with(context)
-//                .load(url)
-//                .apply(requestOption)
-//                .into(imageView)
-//        }
-//
+        /*Category started*/
+        @JvmStatic
+        @BindingAdapter("categoryImage")
+        fun bindCategoryImage(imageView: ImageView,imageUrl:String) {
+            val url = ApiInfo.baseUrl + "categoryImages/" + imageUrl
+            val context = imageView.context
+            Glide.with(context)
+                .load(url)
+                .into(imageView)
+        }
+
+        @JvmStatic
+        @BindingAdapter("productImage")
+        fun bindProductImage(imageView: ImageView,image: String) {
+            val url = ApiInfo.baseUrl + "productImages/" + image
+            val context = imageView.context
+            Glide.with(context)
+                .load(url)
+                .into(imageView)
+        }
+
 //        @JvmStatic
 //        @BindingAdapter("channelSelection")
 //        fun bindChannelSelection(compoundButton: CompoundButton, channelBase: ChannelBase) {

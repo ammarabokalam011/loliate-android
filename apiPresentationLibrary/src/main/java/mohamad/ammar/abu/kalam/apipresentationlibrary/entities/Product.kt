@@ -7,35 +7,37 @@ import com.google.gson.annotations.SerializedName
 class Product() : BaseBindEntity(), Parcelable {
 
     @SerializedName("id")
-    var id:Int=0
+    var id: Int = 0
 
     @SerializedName("name")
-    var name:String=""
+    var name: String = ""
 
     @SerializedName("nameAr")
-    var nameAr:String=""
+    var nameAr: String = ""
 
     @SerializedName("categoryID")
-    var categoryID:Int=0
+    var categoryID: Int = 0
 
     @SerializedName("description")
-    var description:String=""
+    var description: String = ""
 
     @SerializedName("specification")
-    var specification:String=""
+    var specification: String = ""
 
     @SerializedName("price")
-    var price:Int=0
+    var price: Int = 0
 
     @SerializedName("quantity")
-    var quantity:Int=0
+    var quantity: Int = 0
 
     @SerializedName("available")
-    var available:Boolean=true
+    var available: Boolean = true
 
     @SerializedName("image")
-    var image:String=""
+    var image: String = ""
 
+    @SerializedName("code")
+    var code : String =""
 
     constructor(parcel: Parcel) : this() {
         id = parcel.readInt()
@@ -43,6 +45,7 @@ class Product() : BaseBindEntity(), Parcelable {
         nameAr = parcel.readString()!!
         categoryID = parcel.readInt()
         image = parcel.readString()!!
+        code = parcel.readString()!!
         description = parcel.readString()!!
         specification = parcel.readString()!!
         price = parcel.readInt()
@@ -57,6 +60,7 @@ class Product() : BaseBindEntity(), Parcelable {
         parcel.writeString(nameAr)
         parcel.writeInt(categoryID)
         parcel.writeString(image)
+        parcel.writeString(code)
         parcel.writeString(description)
         parcel.writeString(specification)
         parcel.writeInt(price)

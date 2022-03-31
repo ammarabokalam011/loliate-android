@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="channelIconWidth">@dimen/_48sdp</dimen>
-    <dimen name="channelIconHeight">@dimen/_48sdp</dimen>
+    <dimen name="categoryIconWidth">@dimen/_80sdp</dimen>
+    <dimen name="categoryIconHeight">@dimen/_80sdp</dimen>
 
+    <dimen name="productIconWidth">@dimen/_80sdp</dimen>
+    <dimen name="productIconHeight">@dimen/_80sdp</dimen>
 
     <dimen name="channelCellHeight">@dimen/_70sdp</dimen>
     <dimen name="channelPadding">@dimen/_12sdp</dimen>

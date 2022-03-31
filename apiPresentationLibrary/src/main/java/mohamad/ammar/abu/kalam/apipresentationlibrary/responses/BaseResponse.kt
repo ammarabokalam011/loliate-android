@@ -3,7 +3,8 @@ package mohamad.ammar.abu.kalam.apipresentationlibrary.responses
 class BaseResponse<T> {
 
     var success: Boolean = true
-//    var message: Message = Message()
+
+    //    var message: Message = Message()
     var message: String = ""
 
     var data: T? = null

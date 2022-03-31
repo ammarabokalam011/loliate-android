@@ -7,19 +7,22 @@ import com.google.gson.annotations.SerializedName
 class Category() : BaseBindEntity(), Parcelable {
 
     @SerializedName("id")
-    var id:Int=0
+    var id: Int = 0
 
     @SerializedName("name")
-    var name:String=""
+    var name: String = ""
 
     @SerializedName("nameAr")
-    var nameAr:String=""
+    var nameAr: String = ""
 
     @SerializedName("parentID")
-    var parentID:Int?=null
+    var parentID: Int? = null
 
     @SerializedName("image")
-    var image:String=""
+    var image: String = ""
+
+    @SerializedName("isLeaf")
+    var isLeaf: Boolean = false
 
 
     constructor(parcel: Parcel) : this() {
@@ -28,6 +31,7 @@ class Category() : BaseBindEntity(), Parcelable {
         nameAr = parcel.readString()!!
         parentID = parcel.readInt()
         image = parcel.readString()!!
+        isLeaf = parcel.readString().toBoolean()
     }
 
 
@@ -35,9 +39,10 @@ class Category() : BaseBindEntity(), Parcelable {
         parcel.writeInt(id)
         parcel.writeString(name)
         parcel.writeString(nameAr)
-        if(parentID!=null)
+        if (parentID != null)
             parcel.writeInt(parentID!!)
         parcel.writeString(image)
+        parcel.writeString(isLeaf.toString())
     }
 
     override fun describeContents(): Int {

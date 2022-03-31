@@ -17,24 +17,29 @@ class ApiServer(val context: Context) {
         val logging = HttpLoggingInterceptor()
         logging.level = HttpLoggingInterceptor.Level.BASIC
         val client = OkHttpClient.Builder()
-                .addInterceptor(logging)
+            .addInterceptor(logging)
         val login = LoginRepository(context).getLoginResponse()
         if (login != null) {
             client.addInterceptor {
-                it.proceed(it.request().newBuilder().addHeader("Authorization",
-                        "Bearer " + login.authenticationToken).build())
+                it.proceed(
+                    it.request().newBuilder().addHeader(
+                        "Authorization",
+                        "Bearer " + login.authenticationToken
+                    ).build()
+                )
             }
         }
         val retrofit = Retrofit.Builder()
-                .baseUrl(ApiInfo.baseUrl)
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-                .client(client.build())
-                .build()
+            .baseUrl(ApiInfo.baseUrlApi)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+            .client(client.build())
+            .build()
 
         apiInterfaces = retrofit.create(
             ApiInterfaces::
-        class.java)
+            class.java
+        )
     }
 
 }

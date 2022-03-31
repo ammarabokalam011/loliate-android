@@ -7,36 +7,36 @@ import com.google.gson.annotations.SerializedName
 class User() : BaseBindEntity(), Parcelable {
 
     @SerializedName("id")
-    var id:Int=0
+    var id: Int = 0
 
     @SerializedName("name")
-    var name:String=""
+    var name: String = ""
 
     @SerializedName("email")
-    var email:String=""
+    var phone: String = ""
 
     @SerializedName("password")
-    var password:String=""
+    var password: String = ""
 
 
     constructor(parcel: Parcel) : this() {
         id = parcel.readInt()
         name = parcel.readString()!!
-        email = parcel.readString()!!
+        phone = parcel.readString()!!
         password = parcel.readString()!!
     }
 
-    constructor(id: Int, name: String, email: String, password: String) : this() {
+    constructor(id: Int, name: String, phone: String, password: String) : this() {
         this.id = id
         this.name = name
-        this.email = email
+        this.phone = phone
         this.password = password
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeInt(id)
         parcel.writeString(name)
-        parcel.writeString(email)
+        parcel.writeString(phone)
         parcel.writeString(password)
     }
 

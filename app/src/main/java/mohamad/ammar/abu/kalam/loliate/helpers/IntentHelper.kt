@@ -2,9 +2,10 @@ package mohamad.ammar.abu.kalam.loliate.helpers
 
 import android.content.Context
 import android.content.Intent
-import com.google.gson.Gson
 import mohamad.ammar.abu.kalam.loliate.activities.LoginActivity
-import mohamad.ammar.abu.kalam.loliate.activities.MainActivity
+import mohamad.ammar.abu.kalam.loliate.activities.CategoryActivity
+import mohamad.ammar.abu.kalam.loliate.activities.ProductDetailActivity
+import mohamad.ammar.abu.kalam.loliate.activities.ProductsActivity
 
 class IntentHelper {
 
@@ -16,11 +17,29 @@ class IntentHelper {
             context.startActivity(intent)
         }
 
-
-        fun startMainActivity(context: Context) {
-            val intent = Intent(context, MainActivity::class.java)
+        fun startCategoryActivity(context: Context, id: Int?=null) {
+            val intent = Intent(context, CategoryActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or
                     Intent.FLAG_ACTIVITY_CLEAR_TASK
+            if(id!=null)
+                intent.putExtra("parentId",id)
+            context.startActivity(intent)
+        }
+
+        fun startListProductActivity(context: Context, id: Int) {
+            val intent = Intent(context, ProductsActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                    Intent.FLAG_ACTIVITY_CLEAR_TASK
+            if(id!=null)
+                intent.putExtra("categoryId",id)
+            context.startActivity(intent)
+        }
+
+        fun startProductDetailActivity(context: Context, id: Int) {
+            val intent = Intent(context, ProductDetailActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                    Intent.FLAG_ACTIVITY_CLEAR_TASK
+            intent.putExtra("productId",id)
             context.startActivity(intent)
         }
 

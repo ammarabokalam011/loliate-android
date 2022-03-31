@@ -11,7 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Loliate">
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activities.ProductDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ProductsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.CategoryActivity"
             android:exported="false" />
         <activity
             android:name=".activities.LoginActivity"

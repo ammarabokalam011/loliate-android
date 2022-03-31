@@ -66,18 +66,18 @@ public class RtlViewPager extends ViewPager {
     }
 
     @Override
+    public PagerAdapter getAdapter() {
+        ReversingAdapter adapter = (ReversingAdapter) super.getAdapter();
+        return adapter == null ? null : adapter.getDelegate();
+    }
+
+    @Override
     public void setAdapter(PagerAdapter adapter) {
         if (adapter != null) {
             adapter = new ReversingAdapter(adapter);
         }
         super.setAdapter(adapter);
         setCurrentItem(0);
-    }
-
-    @Override
-    public PagerAdapter getAdapter() {
-        ReversingAdapter adapter = (ReversingAdapter) super.getAdapter();
-        return adapter == null ? null : adapter.getDelegate();
     }
 
     private boolean isRtl() {
@@ -95,15 +95,6 @@ public class RtlViewPager extends ViewPager {
     }
 
     @Override
-    public void setCurrentItem(int position, boolean smoothScroll) {
-        PagerAdapter adapter = super.getAdapter();
-        if (adapter != null && isRtl()) {
-            position = adapter.getCount() - position - 1;
-        }
-        super.setCurrentItem(position, smoothScroll);
-    }
-
-    @Override
     public void setCurrentItem(int position) {
         PagerAdapter adapter = super.getAdapter();
         if (adapter != null && isRtl()) {
@@ -112,46 +103,13 @@ public class RtlViewPager extends ViewPager {
         super.setCurrentItem(position);
     }
 
-    public static class SavedState implements Parcelable {
-        private final Parcelable mViewPagerSavedState;
-        private final int mLayoutDirection;
-
-        private SavedState(Parcelable viewPagerSavedState, int layoutDirection) {
-            mViewPagerSavedState = viewPagerSavedState;
-            mLayoutDirection = layoutDirection;
+    @Override
+    public void setCurrentItem(int position, boolean smoothScroll) {
+        PagerAdapter adapter = super.getAdapter();
+        if (adapter != null && isRtl()) {
+            position = adapter.getCount() - position - 1;
         }
-
-        private SavedState(Parcel in, ClassLoader loader) {
-            if (loader == null) {
-                loader = getClass().getClassLoader();
-            }
-            mViewPagerSavedState = in.readParcelable(loader);
-            mLayoutDirection = in.readInt();
-        }
-
-        @Override
-        public int describeContents() {
-            return 0;
-        }
-
-        @Override
-        public void writeToParcel(Parcel out, int flags) {
-            out.writeParcelable(mViewPagerSavedState, flags);
-            out.writeInt(mLayoutDirection);
-        }
-
-        // The `CREATOR` field is used to create the parcelable from a parcel, even though it is never referenced directly.
-        public static final Creator<SavedState> CREATOR = ParcelableCompat.newCreator(new ParcelableCompatCreatorCallbacks<SavedState>() {
-            @Override
-            public SavedState createFromParcel(Parcel in, ClassLoader loader) {
-                return new SavedState(in, loader);
-            }
-
-            @Override
-            public SavedState[] newArray(int size) {
-                return new SavedState[size];
-            }
-        });
+        super.setCurrentItem(position, smoothScroll);
     }
 
     @Override
@@ -208,6 +166,99 @@ public class RtlViewPager extends ViewPager {
             heightMeasureSpec = MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY);
         }
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    }
+
+    /*NoneSwipeViewPager*/
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (this.IsSwipeAllowed(event)) {
+            return super.onTouchEvent(event);
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent event) {
+        if (this.IsSwipeAllowed(event)) {
+            return super.onInterceptTouchEvent(event);
+        }
+
+        return false;
+    }
+
+    private boolean IsSwipeAllowed(MotionEvent event) {
+        if (this.direction == SwipeDirection.all) return true;
+
+        if (direction == SwipeDirection.none)//disable any swipe
+            return false;
+
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            initialXValue = event.getX();
+            return true;
+        }
+
+        if (event.getAction() == MotionEvent.ACTION_MOVE) {
+            try {
+                float diffX = event.getX() - initialXValue;
+                if (diffX > 0 && direction == SwipeDirection.right) {
+                    // swipe from left to right detected
+                    return false;
+                } else if (diffX < 0 && direction == SwipeDirection.left) {
+                    // swipe from right to left detected
+                    return false;
+                }
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+        }
+
+        return true;
+    }
+
+    public void setAllowedSwipeDirection(SwipeDirection direction) {
+        this.direction = direction;
+    }
+
+    public static class SavedState implements Parcelable {
+        // The `CREATOR` field is used to create the parcelable from a parcel, even though it is never referenced directly.
+        public static final Creator<SavedState> CREATOR = ParcelableCompat.newCreator(new ParcelableCompatCreatorCallbacks<SavedState>() {
+            @Override
+            public SavedState createFromParcel(Parcel in, ClassLoader loader) {
+                return new SavedState(in, loader);
+            }
+
+            @Override
+            public SavedState[] newArray(int size) {
+                return new SavedState[size];
+            }
+        });
+        private final Parcelable mViewPagerSavedState;
+        private final int mLayoutDirection;
+
+        private SavedState(Parcelable viewPagerSavedState, int layoutDirection) {
+            mViewPagerSavedState = viewPagerSavedState;
+            mLayoutDirection = layoutDirection;
+        }
+
+        private SavedState(Parcel in, ClassLoader loader) {
+            if (loader == null) {
+                loader = getClass().getClassLoader();
+            }
+            mViewPagerSavedState = in.readParcelable(loader);
+            mLayoutDirection = in.readInt();
+        }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel out, int flags) {
+            out.writeParcelable(mViewPagerSavedState, flags);
+            out.writeInt(mLayoutDirection);
+        }
     }
 
     private class ReversingOnPageChangeListener implements OnPageChangeListener {
@@ -336,59 +387,6 @@ public class RtlViewPager extends ViewPager {
             }
             super.setPrimaryItem(container, position, object);
         }
-    }
-
-
-    /*NoneSwipeViewPager*/
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        if (this.IsSwipeAllowed(event)) {
-            return super.onTouchEvent(event);
-        }
-
-        return false;
-    }
-
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent event) {
-        if (this.IsSwipeAllowed(event)) {
-            return super.onInterceptTouchEvent(event);
-        }
-
-        return false;
-    }
-
-    private boolean IsSwipeAllowed(MotionEvent event) {
-        if (this.direction == SwipeDirection.all) return true;
-
-        if (direction == SwipeDirection.none)//disable any swipe
-            return false;
-
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            initialXValue = event.getX();
-            return true;
-        }
-
-        if (event.getAction() == MotionEvent.ACTION_MOVE) {
-            try {
-                float diffX = event.getX() - initialXValue;
-                if (diffX > 0 && direction == SwipeDirection.right) {
-                    // swipe from left to right detected
-                    return false;
-                } else if (diffX < 0 && direction == SwipeDirection.left) {
-                    // swipe from right to left detected
-                    return false;
-                }
-            } catch (Exception exception) {
-                exception.printStackTrace();
-            }
-        }
-
-        return true;
-    }
-
-    public void setAllowedSwipeDirection(SwipeDirection direction) {
-        this.direction = direction;
     }
 
 

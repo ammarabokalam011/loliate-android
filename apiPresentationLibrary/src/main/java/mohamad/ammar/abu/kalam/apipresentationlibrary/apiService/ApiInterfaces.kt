@@ -10,6 +10,7 @@ import io.reactivex.rxjava3.core.Observable;
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface ApiInterfaces {
 
@@ -19,15 +20,11 @@ interface ApiInterfaces {
     @GET("categories")
     fun getCategoriesList(/*@Body filter: ChannelFilter*/): Observable<BaseResponse<MutableList<Category>>>
 
-    @POST("categories/{id}")
-    fun getCategory(): Observable<BaseResponse<Category>>
+    @GET("products/getByCategoryId")
+    fun getProductsList(@Query("categoryID") categoryID: Int): Observable<BaseResponse<MutableList<Product>>>
 
-
-    @POST("products/{categoryId}")
-    fun getProductsList(): Observable<BaseResponse<MutableList<Product>>>
-
-    @POST("products/{id}")
-    fun getProduct(): Observable<BaseResponse<Product>>
+    @GET("products/getByProductId")
+    fun getProduct(@Query("productID") productId: Int): Observable<BaseResponse<Product>>
 
     @POST("users")
     fun getUser(): Observable<BaseResponse<User>>
