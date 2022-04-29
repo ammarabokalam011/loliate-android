@@ -26,7 +26,18 @@ class CategoryActivity : BaseActivity() ,CategoryContract.View{
         progressDialog = ProgressDialog.newInstance()
         presenter.attachView(this)
         intiActions()
+        toolbar=binding.toolbar.toolbar
+        initToolBar()
     }
+
+
+    private fun initToolBar() {
+        setSupportActionBar(toolbar)
+        toolbar?.setNavigationOnClickListener {
+            onBackPressed()
+        }
+    }
+
 
     private fun intiActions() {
         if(intent.extras?.getInt("parentId",-1)!=-1)
@@ -43,8 +54,13 @@ class CategoryActivity : BaseActivity() ,CategoryContract.View{
     }
 
     override fun onRetrievingCategoriesSuccessfully(categories: MutableList<Category>) {
+        val currentCategory = categories.find { it.id==categoryId }
         binding.categoriesList.adapter= CategoryAdapter(this,categories.filter { it.parentID==categoryId })
         binding.categoriesList.layoutManager = GridLayoutManager(this,2)
+        var name = "الصفحة الرئيسية"
+        if(currentCategory!=null)
+            name = currentCategory.nameAr
+        binding.title.text = name
     }
 
 

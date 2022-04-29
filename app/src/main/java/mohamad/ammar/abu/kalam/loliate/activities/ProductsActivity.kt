@@ -9,6 +9,7 @@ import mohamad.ammar.abu.kalam.apipresentationlibrary.di.dialogs.ProgressDialog
 import mohamad.ammar.abu.kalam.apipresentationlibrary.di.ui.ProductContract
 import mohamad.ammar.abu.kalam.apipresentationlibrary.di.ui.ProductPresenter
 import mohamad.ammar.abu.kalam.apipresentationlibrary.entities.Product
+import mohamad.ammar.abu.kalam.loliate.R
 import mohamad.ammar.abu.kalam.loliate.adapters.CategoryAdapter
 import mohamad.ammar.abu.kalam.loliate.adapters.ProductAdapter
 import mohamad.ammar.abu.kalam.loliate.databinding.ActivityProductsBinding
@@ -25,7 +26,6 @@ class ProductsActivity : BaseActivity(),ProductContract.View {
     private fun getExtra() {
         if(intent.extras?.getInt("categoryId",-1)!=-1)
             categoryId=intent.extras?.getInt("categoryId")!!
-
     }
 
     private fun intiActions() {
@@ -41,14 +41,22 @@ class ProductsActivity : BaseActivity(),ProductContract.View {
         presenter.attachView(this)
         getExtra()
         intiActions()
+        toolbar= binding.toolbar.toolbar
+        initToolBar()
+    }
+
+    private fun initToolBar() {
+        setSupportActionBar(toolbar)
+        toolbar?.setNavigationOnClickListener {
+            onBackPressed()
+        }
     }
 
     override fun onRetrievingProductsSuccessfully(products:MutableList<Product>) {
         binding.productsList.adapter= ProductAdapter(this,products)
         binding.productsList.layoutManager = LinearLayoutManager(this)
     }
-    override fun onRetrievingProductsFailed() {
-        Toast.makeText(this,"failed",Toast.LENGTH_LONG).show()
-    }
+    override fun onRetrievingProductsFailed() =
+        Toast.makeText(this,getString(R.string.failed),Toast.LENGTH_LONG).show()
 
 }

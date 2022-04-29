@@ -11,12 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_140sdp"
         android:layout_margin="4dp"
-        android:shadowColor="@color/green_light"
+        android:shadowColor="@color/white"
         android:shadowRadius="3"
-        app:cardElevation="4dp"
-        app:cardPreventCornerOverlap="false"
-        app:cardCornerRadius="3dp"
-        >
+        android:background="@color/colorPrimary"
+        card_view:cardCornerRadius="0dp"
+        card_view:cardElevation="3dp"
+        card_view:cardPreventCornerOverlap="false">
 
         <LinearLayout
             android:orientation="vertical"
@@ -28,7 +28,7 @@
                 android:id="@+id/source_image"
                 android:scaleType="centerCrop"
                 android:layout_width="match_parent"
-                android:src="@mipmap/ic_launcher"
+                android:src="@mipmap/ic_loulyat"
                 app:categoryImage="@{category.image}"
                 android:layout_height="@dimen/_108sdp" />
 

@@ -1,6 +1,5 @@
 package mohamad.ammar.abu.kalam.loliate.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
@@ -10,7 +9,6 @@ import mohamad.ammar.abu.kalam.apipresentationlibrary.di.ui.ProductContract
 import mohamad.ammar.abu.kalam.apipresentationlibrary.di.ui.ProductPresenter
 import mohamad.ammar.abu.kalam.apipresentationlibrary.entities.Product
 import mohamad.ammar.abu.kalam.loliate.databinding.ActivityProductDetailBinding
-import mohamad.ammar.abu.kalam.loliate.databinding.ActivityProductsBinding
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -28,6 +26,15 @@ class ProductDetailActivity : BaseActivity(),ProductContract.View {
         progressDialog = ProgressDialog.newInstance()
         presenter.attachView(this)
         intiActions()
+        toolbar= binding.toolbar.toolbar
+        initToolBar()
+    }
+
+    private fun initToolBar() {
+        setSupportActionBar(toolbar)
+        toolbar?.setNavigationOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun intiActions() {
@@ -41,7 +48,7 @@ class ProductDetailActivity : BaseActivity(),ProductContract.View {
         binding.code.text =product.code
         binding.description.text =product.description
         binding.specification.text =product.specification
-        binding.price.text =product.price.toString()
+        binding.price.text =product.price.toString()+" ل.س "
         binding.name.text =product.name
         binding.nameAr.text =product.nameAr
         Glide.with(this)

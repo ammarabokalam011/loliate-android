@@ -29,4 +29,7 @@ interface ApiInterfaces {
     @POST("users")
     fun getUser(): Observable<BaseResponse<User>>
 
+    @GET("products/getByProductsIds")
+    fun getProductsbyIDs(@Query("productsIDs") productId:  MutableList<Int> ): Observable<BaseResponse<MutableList<Product>>>
+    //=1, 2 , 3
 }

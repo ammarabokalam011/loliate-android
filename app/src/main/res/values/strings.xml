@@ -4,8 +4,18 @@
     <string name="cancel">Cancel</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="doYouWantDeleteFavoriteGroup">Do you want delete favorite group?</string>
     <string name="pleaseCheckConnection">please check your internet</string>
     <string name="unExpectedErrorHappened">unexpected error happened try again</string>
     <string name="userNameOrPasswordIncorrect">Username or password incorrect</string>
+    <string name="price_label">Price: </string>
+    <string name="code_label">Code: </string>
+    <string name="pleaseWait">please wait</string>
+    <string name="ThisFieldRequired">this field is required</string>
+    <string name="UserName">username</string>
+    <string name="Password">password</string>
+    <string name="Login">login</string>
+    <string name="specification_label">Specification: </string>
+    <string name="description_label">description: </string>
+    <string name="failed">failed</string>
+
 </resources>

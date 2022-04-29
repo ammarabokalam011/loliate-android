@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pleaseWait">انتظر ...</string>
+    <string name="ThisFieldRequired">هذا الحقل اجاري</string>
+
+    <string name="pleaseCheckConnection">تأكد من اتصالك بالانترنت</string>
+    <string name="unExpectedErrorHappened">حدث خطأ غير متوقع</string>
+    <string name="userNameOrPasswordIncorrect">اسم المستخدم او كلمة المرور غير صحيح</string>
+
+    <string name="UserName">اسم المستخدم (رقم الهاتف)</string>
+    <string name="Password">كلمة السر</string>
+    <string name="Login">تسجيل دخول</string>
+    <string name="app_name">لوليات</string>
+    <string name="no">لا</string>
+    <string name="yes">نعم</string>
+    <string name="add">اضافة</string>
+    <string name="cancel">الغاء</string>
+    <string name="price_label">"السعر: "</string>
+    <string name="code_label">كود المنتج:</string>
+    <string name="specification_label">المواصفات:</string>
+    <string name="description_label">التفاصیل:</string>
+    <string name="failed">فشلت العملية</string>
+
+</resources>

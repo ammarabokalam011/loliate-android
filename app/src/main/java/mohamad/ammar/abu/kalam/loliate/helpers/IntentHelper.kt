@@ -19,7 +19,8 @@ class IntentHelper {
 
         fun startCategoryActivity(context: Context, id: Int?=null) {
             val intent = Intent(context, CategoryActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or
+            if(id==null)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or
                     Intent.FLAG_ACTIVITY_CLEAR_TASK
             if(id!=null)
                 intent.putExtra("parentId",id)
@@ -28,17 +29,12 @@ class IntentHelper {
 
         fun startListProductActivity(context: Context, id: Int) {
             val intent = Intent(context, ProductsActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or
-                    Intent.FLAG_ACTIVITY_CLEAR_TASK
-            if(id!=null)
-                intent.putExtra("categoryId",id)
+            intent.putExtra("categoryId",id)
             context.startActivity(intent)
         }
 
         fun startProductDetailActivity(context: Context, id: Int) {
             val intent = Intent(context, ProductDetailActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or
-                    Intent.FLAG_ACTIVITY_CLEAR_TASK
             intent.putExtra("productId",id)
             context.startActivity(intent)
         }

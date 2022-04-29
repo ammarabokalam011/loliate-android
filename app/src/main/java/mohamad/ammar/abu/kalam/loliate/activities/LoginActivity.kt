@@ -31,6 +31,15 @@ class LoginActivity : BaseActivity(),UserContract.View  {
         progressDialog = ProgressDialog.newInstance()
         presenter.attachView(this)
         intiActions()
+        toolbar=binding.toolbar.toolbar
+        initToolBar()
+    }
+
+    private fun initToolBar() {
+        setSupportActionBar(toolbar)
+        toolbar?.setNavigationOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun intiActions() {
@@ -43,6 +52,10 @@ class LoginActivity : BaseActivity(),UserContract.View  {
         }
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+    }
     override fun showProgress(show: Boolean) {
         if (show) {
             progressDialog.showDialog(supportFragmentManager)

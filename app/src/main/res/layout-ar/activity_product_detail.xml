@@ -56,6 +56,8 @@
                 android:textColor="@color/white"
                 android:textSize="24sp"
                 android:textStyle="bold" />
+
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -65,6 +67,7 @@
             android:padding="4dp"
             android:layout_marginBottom="4dp"
             android:layout_marginTop="16dp">
+
 
             <TextView
                 android:id="@+id/name"
@@ -77,7 +80,9 @@
                 android:textStyle="bold" />
 
         </LinearLayout>
+
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/lyPriceCode"
         android:layout_width="match_parent"
@@ -89,11 +94,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lyNames">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true">
+
             <TextView
                 android:id="@+id/txtPrice"
                 android:layout_width="wrap_content"
@@ -101,6 +108,7 @@
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:text="@string/price_label" />
+
             <TextView
                 android:id="@+id/price"
                 android:layout_width="wrap_content"
@@ -109,18 +117,22 @@
                 android:textColor="@color/white"/>
 
         </LinearLayout>
+
         <ImageButton
             android:id="@+id/like_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:background="@color/white"
-            app:srcCompat="@drawable/sl_favourite_24dp" />
+            app:srcCompat="@drawable/sl_favourite_24dp"
+            android:contentDescription="like button" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true">
+
             <TextView
                 android:id="@+id/txtcode"
                 android:layout_width="wrap_content"
@@ -133,13 +145,10 @@
                 android:id="@+id/code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
                 android:textSize="20sp"
                 android:textColor="@color/white"/>
 
         </LinearLayout>
-
-
 
     </RelativeLayout>
 
@@ -200,7 +209,5 @@
             android:textStyle="normal" />
 
     </LinearLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
