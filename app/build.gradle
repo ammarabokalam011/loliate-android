@@ -35,6 +35,7 @@ android {
         dataBinding true
         viewBinding true
     }
+    namespace 'mohamad.ammar.abu.kalam.loliate'
 }
 
 dependencies {

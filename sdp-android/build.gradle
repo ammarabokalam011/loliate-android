@@ -8,6 +8,7 @@ android {
         minSdkVersion MIN_VERSION
         targetSdkVersion COMPILE_VERSION
     }
+    namespace 'com.intuit.sdp'
 }
 
 
